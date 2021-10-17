@@ -1,0 +1,3 @@
+no	false
+yes	false
+maybe	true
