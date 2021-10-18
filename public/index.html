@@ -7,7 +7,22 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <h1>ToDoRust</h1>
-  Hello World!
+  <main>
+    <h1 id="title">ToDoRust</h1>
+    <form method="get">
+      <div class="form-item">
+        <label>Action: </label>
+        <input type="text" id="action" placeholder="Enter an action (Add or Complete)" required>
+      </div>
+      <div class="form-item">
+        <label>Activity: </label>
+        <input type="text" id="activity" placeholder="Write an Activity" required>
+      </div>
+      <div class="form-button">
+        <input type="submit" value="Update List">
+      </div>
+    </form>
+  </main>
 </body>
+<script type="text/javascript" src="./main.js"></script>
 </html>
