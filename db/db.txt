@@ -1,5 +1,4 @@
-maybe	true
-lavar a louça	false
+a task	false
+bom dia 	true
 yes	false
-tarefa importante	true
-no	false
+lavar a louça	false

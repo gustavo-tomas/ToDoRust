@@ -10,8 +10,8 @@ form.addEventListener('submit', evt => {
   evt.preventDefault();
   console.log("action: ", action.value, "\ntask: ", task.value);
   __TAURI__.invoke('handle_action', {
-    action: action.value,
-    task: task.value
+    action: action.value.toLowerCase(),
+    task: task.value.toLowerCase()
   });
 });
 
