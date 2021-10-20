@@ -1,3 +1,5 @@
-no	false
-yes	false
 maybe	true
+lavar a louça	false
+yes	false
+tarefa importante	true
+no	false
