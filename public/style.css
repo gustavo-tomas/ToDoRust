@@ -15,3 +15,8 @@ main {
 #title {
   color: blue;
 }
+
+#task-list {
+  background-color: aquamarine;
+  overflow: visible;
+}

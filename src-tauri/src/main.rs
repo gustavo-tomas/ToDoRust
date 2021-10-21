@@ -16,8 +16,30 @@ use std::str::FromStr;
 // Path to db.txt -> Change to db_test.txt when in development
 const PATH_TO_DB: &str = "../db/db_test.txt";
 
+// Testing
 #[command]
-fn handle_action(action: String, task: String) {
+fn teste() -> String {
+  println!("OYY: {}", "Hello".to_string());
+  return format!("Hello");
+}
+
+// Function to return current tasks
+#[command]
+fn get_task() -> Vec<String> {
+  let todo = Todo::new().expect("Failed to initialise db");
+  // let keys = todo.map.keys();
+  let mut list: Vec<String> = Vec::new();
+  let iter = todo.map.into_iter();
+  for i in iter {
+    println!("TASK: {}", i.0.to_string());
+    list.push(i.0.to_string());
+  }
+  return list;
+}
+
+// Function to update the todo list
+#[command]
+fn update_todo(action: String, task: String) {
   
   println!("ACTION: {}, TASK: {}", action, task);
   let mut todo = Todo::new().expect("Failed to initialise db");
@@ -103,7 +125,9 @@ fn main() {
   tauri::Builder::default()
     .invoke_handler(
       tauri::generate_handler![
-        handle_action,
+        update_todo,
+        get_task,
+        teste,
       ]
     )
     .run(tauri::generate_context!())
