@@ -4,28 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <main>
+    <div id="warning" class="alert alert-warning alert-dismissible fade show" role="alert">
+      Invalid operation.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <h1 id="title">ToDoRust</h1>
-    <form id="main-form" method="get">
-      <div class="form-item">
-        <label>Action: </label>
-        <input type="text" id="action" placeholder="Enter an action (Add or Remove)" required>
-      </div>
-      <div class="form-item">
-        <label>Activity: </label>
-        <input type="text" id="task" placeholder="Write a Task" required>
-      </div>
-      <div class="form-button">
-        <input type="submit" value="Update List">
-      </div>
-    </form>
-    <ul id="task-list">
-      <li class="task-item">If you're seeing this, something went wrong</li>
-    </ul>
+    <div id="form-container">
+      <h4 id="subtitle">
+        Welcome to ToDoRust!
+        <br>
+        Add or Remove tasks using the fields below
+      </h4>
+      <form id="main-form" method="get">
+        <div class="form-item">
+          <label>Action</label>
+          <input type="text" id="action" class="form-input" placeholder="Add or Remove" required>
+        </div>
+        <div class="form-item">
+          <label class="task">Task</label>
+          <input type="text" class="form-input task" placeholder="An activity yet to be done" required>
+        </div>
+        <div class="form-button">
+          <input type="submit" value="Update List" class="button">
+        </div>
+      </form>
+      <ul id="task-list">
+        <li class="task-item">very very very very very very very very very very very very big</li>
+        <li class="task-item">very small</li>
+        <li class="task-item">very very very average</li>
+        <li class="task-item">If you're seeing this, something went wrong</li>
+        <li class="task-item">If you're seeing this, something went wrong</li>
+        <li class="task-item">If you're seeing this, something went wrong</li>
+        <li class="task-item">If you're seeing this, something went wrong</li>
+        <li class="task-item">If you're seeing this, something went wrong</li>
+        <li class="task-item">If you're seeing this, something went wrong</li>
+        <li class="task-item">If you're seeing this, something went wrong</li>
+        <li class="task-item">If you're seeing this, something went wrong</li>
+      </ul>
+    </div>
   </main>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 <script type="text/javascript" src="./main.js"></script>
 </html>

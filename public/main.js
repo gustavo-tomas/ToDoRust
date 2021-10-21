@@ -1,15 +1,30 @@
 const form = document.querySelector('form');
 const [action, task] = document.getElementById('main-form').elements;
 const taskList = document.querySelector('#task-list');
-// const actionInput = document.querySelector('#action');
+const alertNode = document.querySelector('.alert');
+
+/**
+ * Close generated warnings
+ * @TODO finish warning
+ */
+const closeWarning = () => {
+  var alert = bootstrap.Alert.getInstance(alertNode);
+  alert.close();
+  // $('.alert').alert('close');
+}
+
+const showWarning = () => {
+  warning.hidden = false;
+  $().alert('show');
+}
 
 /**
  * Render all the tasks retrieved from the database as items in a list.
  * Cleans the current screen before updating.
  */
 const renderTasks = () => {
-  taskList.innerHTML = "";
   __TAURI__.invoke("get_task").then(result => {
+    taskList.innerHTML = "";
     result.forEach(element => {
       const task = document.createElement('li');
       task.setAttribute('class', 'task-item');
@@ -67,7 +82,8 @@ const removeRenderedTask = (result) => {
 // handle_action and sending object with fields values as parameters
 form.addEventListener('submit', evt => {
   evt.preventDefault();
-  console.log("action: ", action.value, "\ntask: ", task.value);
+  // closeWarning();
+  showWarning();
   const result = {
     action: action.value.toLowerCase(),
     task: task.value.toLowerCase()
@@ -90,9 +106,6 @@ form.addEventListener('submit', evt => {
 // Render tasks on load
 window.addEventListener('load', evt => {
   evt.preventDefault();
+  closeWarning();
   renderTasks();
 });
-
-// actionInput.addEventListener('input', evt => {
-//   console.log("Value: ", actionInput.value);
-// });
