@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 /* font-family: 'Ubuntu', sans-serif; */
 
 .alert {
@@ -13,14 +14,6 @@ body {
   background-color: aliceblue;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 365px;
-  max-height: 565px;
-}
-
 #title {
   margin: 20px 0px 10px 0px;
 }
@@ -29,10 +22,15 @@ main {
   text-align: center;
 }
 
-#form-container {
+main {
+  font-family: monospace;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid blue;
+  width: 100%;
+  height: auto;
+  max-height: 570px;
 }
 
 #main-form {
@@ -42,37 +40,50 @@ main {
   align-items: center;
 }
 
-.form-input {
-  padding: 4px;
+.form-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.task {
-  margin: 5px 8px 15px 6px;
-}
-
-.form-button {
-  align-self: center;
+.form-item {
+  border: 1px solid red;
 }
 
 .button {
   padding: 4px;
+  margin-bottom: 10px;
 }
 
 #task-list {
-  max-height: 210px;
-  min-width: 270px;
-  width: 350px;
-  overflow: auto;
-  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  max-height: 650px;
+  max-width: 650px;
+  padding: 0px;
+  border: 1px solid red;
 }
 
 .task-item {
-  border: 0px solid green;
+  list-style-type: none;
   background-color: rgb(158, 211, 255);
   border-radius: 8px;
   padding: 8px 10px;
-  margin: 5px 0px;
+  margin: 5px 10px 0px 10px;
   width: fit-content;
-  max-width: 320px;
   word-break: break-all;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 0px;
+}
+
+#author {
+  margin: 3px;
 }

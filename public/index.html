@@ -8,48 +8,60 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <!-- <div id="warning" class="alert alert-warning alert-dismissible fade show" role="alert">
+    Invalid operation.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> -->
+  <h1 id="title">ToDoRust</h1>
+  <h4 id="subtitle">
+    Welcome to ToDoRust!
+    <br>
+    Add or Remove tasks using the fields below
+  </h4>
   <main>
-    <div id="warning" class="alert alert-warning alert-dismissible fade show" role="alert">
-      Invalid operation.
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <h1 id="title">ToDoRust</h1>
-    <div id="form-container">
-      <h4 id="subtitle">
-        Welcome to ToDoRust!
-        <br>
-        Add or Remove tasks using the fields below
-      </h4>
-      <form id="main-form" method="get">
+    <form id="main-form" method="get">
+      <div class="form-item-container">
         <div class="form-item">
           <label>Action</label>
           <input type="text" id="action" class="form-input" placeholder="Add or Remove" required>
         </div>
         <div class="form-item">
-          <label class="task">Task</label>
-          <input type="text" class="form-input task" placeholder="An activity yet to be done" required>
+          <label>Task</label>
+          <input type="text" class="form-input" placeholder="An activity yet to be done" required>
         </div>
-        <div class="form-button">
-          <input type="submit" value="Update List" class="button">
-        </div>
-      </form>
-      <ul id="task-list">
-        <li class="task-item">very very very very very very very very very very very very big</li>
-        <li class="task-item">very small</li>
-        <li class="task-item">very very very average</li>
-        <li class="task-item">If you're seeing this, something went wrong</li>
-        <li class="task-item">If you're seeing this, something went wrong</li>
-        <li class="task-item">If you're seeing this, something went wrong</li>
-        <li class="task-item">If you're seeing this, something went wrong</li>
-        <li class="task-item">If you're seeing this, something went wrong</li>
-        <li class="task-item">If you're seeing this, something went wrong</li>
-        <li class="task-item">If you're seeing this, something went wrong</li>
-        <li class="task-item">If you're seeing this, something went wrong</li>
-      </ul>
-    </div>
+      </div>
+      <div class="form-button">
+        <input type="submit" value="Update List" class="button">
+      </div>
+    </form>
+    <ul id="task-list">
+      <li class="task-item">very very very very very very very very very very very very very very very very very very very very big</li>
+      <li class="task-item">very small</li>
+      <li class="task-item">very very very average</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+      <li class="task-item">If you're seeing this, something went wrong</li>
+    </ul>
   </main>
+  <footer>
+    <p id="author">Gustavo Tomás, 2021</p>
+    <a href="https://github.com"><i class="fa fa-github" style="font-size:30px;color:#000"></i></a>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

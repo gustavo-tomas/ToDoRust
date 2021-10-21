@@ -83,7 +83,7 @@ const removeRenderedTask = (result) => {
 form.addEventListener('submit', evt => {
   evt.preventDefault();
   // closeWarning();
-  showWarning();
+  // showWarning();
   const result = {
     action: action.value.toLowerCase(),
     task: task.value.toLowerCase()
@@ -106,6 +106,6 @@ form.addEventListener('submit', evt => {
 // Render tasks on load
 window.addEventListener('load', evt => {
   evt.preventDefault();
-  closeWarning();
+  // closeWarning();
   renderTasks();
 });
