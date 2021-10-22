@@ -89,14 +89,16 @@ form.addEventListener('submit', evt => {
     task: task.value.toLowerCase()
   };
   __TAURI__.invoke('update_todo', result).then(() => {
-    if (result.action == 'add') {
-      renderTask(result);
-    }
-    else if (result.action == 'remove') {
-      removeRenderedTask(result);
-    }
-    else {
-      window.alert(result.action + " is not a valid action!");
+    switch (result.action) {
+      case 'add':
+        renderTask(result);
+        break;
+      case 'remove':
+        removeRenderedTask(result);
+        break;
+      default:
+        window.alert(result.action + " is not a valid action!");
+        break;
     }
   }).catch(() => {
     console.error("Rejected promise to update list");
