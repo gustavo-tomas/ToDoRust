@@ -27,17 +27,16 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid blue;
   width: 100%;
-  height: auto;
-  max-height: 570px;
+  height: 67vh;
 }
 
 #main-form {
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* border: 1px solid red; */
+  margin-bottom: 15px;
 }
 
 .form-item-container {
@@ -47,12 +46,21 @@ main {
 }
 
 .form-item {
-  border: 1px solid red;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.form-input {
+  padding: 4px;
 }
 
 .button {
   padding: 4px;
-  margin-bottom: 10px;
+  position: relative;
+  left: 115px;
 }
 
 #task-list {
@@ -60,10 +68,12 @@ main {
   flex-direction: column;
   align-items: center;
   overflow: scroll;
-  max-height: 650px;
+  width: 95vw;
+  max-height: 600px;
   max-width: 650px;
-  padding: 0px;
-  border: 1px solid red;
+  padding: 15px;
+  background-color: rgba(128, 128, 128, 0.11);
+  border-radius: 10px;
 }
 
 .task-item {
@@ -71,7 +81,7 @@ main {
   background-color: rgb(158, 211, 255);
   border-radius: 8px;
   padding: 8px 10px;
-  margin: 5px 10px 0px 10px;
+  margin: 0px 0px 5px 0px;
   width: fit-content;
   word-break: break-all;
 }

@@ -3,7 +3,6 @@
   windows_subsystem = "windows"
 )]
 
-// Similar to namespaces in c++
 use tauri::{command};
 
 use std::collections::HashMap;

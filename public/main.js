@@ -1,5 +1,5 @@
 const form = document.querySelector('form');
-const [action, task] = document.getElementById('main-form').elements;
+const [action, task] = form.elements;
 const taskList = document.querySelector('#task-list');
 const alertNode = document.querySelector('.alert');
 
@@ -31,9 +31,7 @@ const renderTasks = () => {
       task.textContent = element;
       taskList.appendChild(task);
     });
-  }).catch(() => {
-    console.error("Rejected promise to render tasks");
-  });
+  }).catch(err => console.error("Rejected promise to render tasks: ", err));
 }
 
 /**
@@ -53,7 +51,7 @@ const renderTask = (result) => {
     const task = document.createElement('li');
     task.setAttribute('class', 'task-item');
     task.textContent = result.task;
-    taskList.appendChild(task);
+    taskList.prepend(task);
   }
   else {
     window.alert(result.task + " is already in the list!");
@@ -100,9 +98,8 @@ form.addEventListener('submit', evt => {
         window.alert(result.action + " is not a valid action!");
         break;
     }
-  }).catch(() => {
-    console.error("Rejected promise to update list");
-  });
+    form.reset();
+  }).catch(err => console.error("Rejected promise to update list: ", err));
 });
 
 // Render tasks on load

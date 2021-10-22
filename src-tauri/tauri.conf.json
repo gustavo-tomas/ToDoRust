@@ -55,8 +55,8 @@
     "windows": [
       {
         "title": "ToDoRust",
-        "width": 400,
-        "height": 600,
+        "width": 550,
+        "height": 690,
         "minWidth": 365,
         "minHeight": 565,
         "maxWidth": 700,
