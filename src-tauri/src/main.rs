@@ -6,15 +6,26 @@
 // Similar to namespaces in c++
 use tauri::{command};
 
-use std::collections::HashMap;   
+use std::collections::HashMap;
+use std::fs;
 use std::fs::write;
 use std::fs::OpenOptions;
 use std::io::Error;
 use std::io::Read;
 use std::str::FromStr;
 
-// Path to db.txt -> Change to db_test.txt when in development
-const PATH_TO_DB: &str = "../db/db_test.txt";
+// Get path to home and returns the path to home/documents 
+fn get_path() -> String {
+  let hdr = home::home_dir().unwrap().into_os_string().into_string().unwrap();
+  let path_to_db = hdr + "/Documents/ToDoRustDb/";
+
+  // Tries to access or create directory if it doesn't already exists
+  match fs::create_dir_all(&path_to_db) {
+    Ok(_) => println!("Path: {} found or created", path_to_db),
+    Err(e) => println!("An error has occurred: {}", e),
+  }
+  return path_to_db + &"db.txt".to_string();
+}
 
 // Function to return current tasks
 #[command]
@@ -67,7 +78,7 @@ impl Todo {
       .write(true)
       .create(true)
       .read(true)
-      .open(PATH_TO_DB)?;
+      .open(get_path())?;
 
     // Save contents of file in a string
     let mut content = String::new();
@@ -95,7 +106,7 @@ impl Todo {
       let record = format!("{}\t{}\n", k, v);
       content.push_str(&record);
     }
-    write(PATH_TO_DB, content)
+    write(get_path(), content)
   }
 
   // Remove an entry or return None if key is invalid
