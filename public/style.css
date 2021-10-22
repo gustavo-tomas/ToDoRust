@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
-/* font-family: 'Ubuntu', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Gluten&family=Kalam&family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
 
+/* font-family: 'Architects Daughter', cursive;
+font-family: 'Kalam', cursive;
+font-family: 'Permanent Marker', cursive;
+*/
 .alert {
   position: absolute;
   top: 0;
@@ -11,19 +14,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: aliceblue;
+  background-color: white;
+  font-family: 'Kalam', cursive;
 }
 
 #title {
+  font-weight: bold;
+  font-size: 48px;
   margin: 20px 0px 10px 0px;
 }
 
 #subtitle {
   text-align: center;
+  margin: 0px 20px 20px 20px;
 }
 
 main {
-  font-family: monospace;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,8 +41,14 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 1px solid red; */
+  padding: 20px;
+  padding-bottom: 0px;
   margin-bottom: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 3px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
+  background-color: rgb(189, 224, 255);
+  background-color: rgb(29, 59, 105);
+  color: white;
+  border-radius: 10px;
 }
 
 .form-item-container {
@@ -50,17 +62,30 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 }
 
 .form-input {
-  padding: 4px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  border: 0px;
 }
 
 .button {
+  cursor: pointer;
+  margin: 7px;
   padding: 4px;
   position: relative;
-  left: 115px;
+  left: 121px;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+hr {
+  width: 85%;
+  max-width: 500px;
+  background-color:black;
 }
 
 #task-list {
@@ -72,8 +97,10 @@ main {
   max-height: 600px;
   max-width: 650px;
   padding: 15px;
-  background-color: rgba(128, 128, 128, 0.11);
+  background-color: rgb(29, 59, 105);
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
 }
 
 .task-item {
@@ -84,16 +111,27 @@ main {
   margin: 0px 0px 5px 0px;
   width: fit-content;
   word-break: break-all;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 
 footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 650px;
+  width: 100%;
   margin: 10px;
   padding: 0px;
+  background-color: rgb(157, 232, 255);
+  border-radius: 90px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 #author {
   margin: 3px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
