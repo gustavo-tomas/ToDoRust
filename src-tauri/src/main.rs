@@ -16,15 +16,17 @@ use std::str::FromStr;
 
 // Get path to home and returns the path to home/documents 
 fn get_path() -> String {
+  let db_name = "db.txt";
   let hdr = home::home_dir().unwrap().into_os_string().into_string().unwrap();
   let path_to_db = hdr + "/Documents/ToDoRustDb/";
+  let full_path = path_to_db.to_string() + db_name;
 
   // Tries to access or create directory if it doesn't already exists
   match fs::create_dir_all(&path_to_db) {
     Ok(_) => println!("Path: {} found or created", path_to_db),
     Err(e) => println!("An error has occurred: {}", e),
   }
-  return path_to_db + &"db.txt".to_string();
+  return full_path;
 }
 
 // Function to return current tasks
