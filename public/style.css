@@ -11,7 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: rgb(255, 255, 230);
   font-family: 'Kalam', cursive;
 }
 
