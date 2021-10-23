@@ -92,6 +92,11 @@ hr {
   display: flex;
   align-items: center;
   margin: 0px 0px 5px 0px;
+  transition: opacity .5s ease-in-out;
+}
+
+.fade-transition {
+  opacity: 0;
 }
 
 .task-item {
