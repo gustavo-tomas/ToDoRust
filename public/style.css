@@ -1,10 +1,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Gluten&family=Kalam&family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
-/* font-family: 'Architects Daughter', cursive;
-font-family: 'Kalam', cursive;
-font-family: 'Permanent Marker', cursive;
-*/
+
 .alert {
   position: absolute;
   top: 0;
@@ -19,7 +16,7 @@ body {
 }
 
 #title {
-  font-family: 'Permanent Marker';
+  font-family: 'Permanent Marker', cursive;
   border-bottom: 2px solid red;
   font-size: 48px;
   margin: 20px 0px 10px 0px;

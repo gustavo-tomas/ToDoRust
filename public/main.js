@@ -59,6 +59,7 @@ const renderTasks = () => {
       
       const span = document.createElement('span');
       span.setAttribute('class', 'material-icons');
+      span.setAttribute('title', 'Delete this task');
 
       const deleteButton = document.createElement('input');
       deleteButton.setAttribute('class', 'button delete-button');
@@ -96,6 +97,7 @@ const renderTask = (result) => {
       
   const span = document.createElement('span');
   span.setAttribute('class', 'material-icons');
+  span.setAttribute('title', 'Delete this task');
 
   const deleteButton = document.createElement('input');
   deleteButton.setAttribute('class', 'button delete-button');
@@ -129,4 +131,5 @@ window.addEventListener('load', evt => {
   evt.preventDefault();
   // closeWarning();
   renderTasks();
+  task.item(0).focus();
 });
