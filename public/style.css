@@ -65,10 +65,22 @@ main {
   outline: 0px;
 }
 
+.material-icons {
+  transition: font-size .15s ease-in-out;
+}
+
+.material-icons:hover {
+  font-size: 28px;
+}
+
 .delete-button {
   color: rgb(255, 45, 45);
   opacity: 0;
   transition: opacity .15s ease-in-out;
+}
+
+.delete-all-button {
+  color: rgb(255, 45, 45);
 }
 
 .task-item-container:hover > .material-icons > .delete-button {

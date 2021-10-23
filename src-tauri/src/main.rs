@@ -22,7 +22,7 @@ fn get_path() -> String {
 
   // Tries to access or create directory if it doesn't already exists
   match fs::create_dir_all(&path_to_db) {
-    Ok(_) => println!("Path: {} found or created", path_to_db),
+    Ok(_) => print!(""),
     Err(e) => println!("An error has occurred: {}", e),
   }
   return full_path;
@@ -46,7 +46,7 @@ fn update_todo(action: String, task: String) {
   if action == "add" {
     todo.insert(task);
     match todo.save() {
-      Ok(_) => println!("Todo saved!"),
+      Ok(_) => println!("Task inserted!"),
       Err(why) => println!("An error has occurred: {}", why),
     }
   } 
@@ -54,9 +54,16 @@ fn update_todo(action: String, task: String) {
     match todo.remove(&task) {
       None => println!("'{}' is not in the list!", task),
       Some(_) => match todo.save() {
-        Ok(_) => println!("Todo updated!"),
+        Ok(_) => println!("Task removed!"),
         Err(why) => println!("An error has occurred: {}", why),
       },
+    }
+  }
+  else if action == "purge" {
+    todo.purge();
+    match todo.save() {
+      Ok(_) => println!("Db purged!"),
+      Err(why) => println!("An error has occurred: {}", why),
     }
   }
   else {
@@ -117,6 +124,11 @@ impl Todo {
       return Some(());
     }
     return None;
+  }
+
+  // Clear entire hashmap
+  fn purge(&mut self) {
+    self.map.clear();
   }
 }
 

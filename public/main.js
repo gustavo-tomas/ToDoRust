@@ -126,6 +126,23 @@ form.addEventListener('submit', evt => {
   }).catch(err => console.error("Rejected promise to update list: ", err));
 });
 
+// Delete all tasks when button is pressed
+task.item(2).addEventListener('click', evt => {
+  confirm('Do you really want to delete all tasks?').then((answer) => {
+    if (!answer) {
+      return;
+    }
+    evt.preventDefault();
+    const result = {
+      action: 'purge',
+      task: ''
+    };
+    __TAURI__.invoke('update_todo', result).then(() => {
+      taskList.innerHTML = "";
+    }).catch(err => console.error("Rejected promise to udpate list: ", err));
+  });
+});
+
 // Render tasks on load
 window.addEventListener('load', evt => {
   evt.preventDefault();
