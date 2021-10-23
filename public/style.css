@@ -28,6 +28,7 @@ body {
 #subtitle {
   text-align: center;
   margin: 0px 20px 20px 20px;
+  max-width: 500px;
 }
 
 main {
@@ -54,6 +55,9 @@ main {
   padding: 4px 10px;
   border-radius: 10px;
   border: 0px;
+  background-color: rgb(29, 59, 105);
+  color: white;
+  outline: 0px;
 }
 
 .button {
@@ -61,10 +65,17 @@ main {
   background-color: transparent;
   border: none;
   color: white;
+  outline: 0px;
 }
 
 .delete-button {
   color: rgb(255, 45, 45);
+  opacity: 0;
+  transition: opacity .15s ease-in-out;
+}
+
+.task-item-container:hover > .material-icons > .delete-button {
+  opacity: 1;
 }
 
 hr {

@@ -115,7 +115,7 @@ form.addEventListener('submit', evt => {
   // closeWarning();
   // showWarning();
   const result = {
-    action: task.item(1).value,
+    action: 'add',
     task: task.item(0).value
   };
   __TAURI__.invoke('update_todo', result).then(() => {
