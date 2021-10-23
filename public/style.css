@@ -15,6 +15,26 @@ body {
   font-family: 'Kalam', cursive;
 }
 
+.settings-button {
+  color: black!important;
+  font-size: 24px!important;
+  position: absolute;
+  right: 0;
+}
+
+.settings-button:hover {
+  animation: transform 2s infinite linear;
+}
+
+@keyframes transform {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 #title {
   font-family: 'Permanent Marker', cursive;
   border-bottom: 2px solid red;
