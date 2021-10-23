@@ -1,22 +1,26 @@
 const form = document.querySelector('form');
-const [action, task] = form.elements;
+const task = form.elements;
 const taskList = document.querySelector('#task-list');
-const alertNode = document.querySelector('.alert');
+// const alertNode = document.querySelector('.alert');
+
+/**
+ * @TODO finish delete tasks logic
+ */
 
 /**
  * Close generated warnings
  * @TODO finish warning
  */
-const closeWarning = () => {
-  var alert = bootstrap.Alert.getInstance(alertNode);
-  alert.close();
-  // $('.alert').alert('close');
-}
+// const closeWarning = () => {
+//   var alert = bootstrap.Alert.getInstance(alertNode);
+//   alert.close();
+//   // $('.alert').alert('close');
+// }
 
-const showWarning = () => {
-  warning.hidden = false;
-  $().alert('show');
-}
+// const showWarning = () => {
+//   warning.hidden = false;
+//   $().alert('show');
+// }
 
 /**
  * Render all the tasks retrieved from the database as items in a list.
@@ -26,10 +30,24 @@ const renderTasks = () => {
   __TAURI__.invoke("get_task").then(result => {
     taskList.innerHTML = "";
     result.forEach(element => {
-      const task = document.createElement('li');
-      task.setAttribute('class', 'task-item');
-      task.textContent = element;
-      taskList.appendChild(task);
+      const taskContainer = document.createElement('div');
+      taskContainer.setAttribute('class', 'task-item-container');
+      
+      const taskItem = document.createElement('li');
+      taskItem.setAttribute('class', 'task-item');
+      taskItem.textContent = element;
+      
+      const span = document.createElement('span');
+      span.setAttribute('class', 'material-icons');
+
+      const deleteButton = document.createElement('input');
+      deleteButton.setAttribute('class', 'button delete-button');
+      deleteButton.setAttribute('type', 'submit');
+      deleteButton.setAttribute('value', 'delete');
+      
+      span.append(deleteButton);
+      taskContainer.append(taskItem, span);
+      taskList.appendChild(taskContainer);
     });
   }).catch(err => console.error("Rejected promise to render tasks: ", err));
 }

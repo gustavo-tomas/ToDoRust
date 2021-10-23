@@ -1,6 +1,6 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Gluten&family=Kalam&family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
-
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 /* font-family: 'Architects Daughter', cursive;
 font-family: 'Kalam', cursive;
 font-family: 'Permanent Marker', cursive;
@@ -19,7 +19,8 @@ body {
 }
 
 #title {
-  font-weight: bold;
+  font-family: 'Permanent Marker';
+  border-bottom: 2px solid red;
   font-size: 48px;
   margin: 20px 0px 10px 0px;
 }
@@ -39,30 +40,14 @@ main {
 
 #main-form {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  padding: 20px;
-  padding-bottom: 0px;
+  padding: 10px;
+  padding-right: 5px;
   margin-bottom: 15px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 3px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
   background-color: rgb(189, 224, 255);
   background-color: rgb(29, 59, 105);
-  color: white;
   border-radius: 10px;
-}
-
-.form-item-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-item {
-  width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 7px;
 }
 
 .form-input {
@@ -73,17 +58,17 @@ main {
 
 .button {
   cursor: pointer;
-  margin: 7px;
-  padding: 4px;
-  position: relative;
-  left: 121px;
   background-color: transparent;
   border: none;
   color: white;
 }
 
+.delete-button {
+  color: rgb(255, 45, 45);
+}
+
 hr {
-  width: 85%;
+  width: 75%;
   max-width: 500px;
   background-color:black;
 }
@@ -103,12 +88,17 @@ hr {
   /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
 }
 
+.task-item-container {
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 5px 0px;
+}
+
 .task-item {
   list-style-type: none;
   background-color: rgb(158, 211, 255);
   border-radius: 8px;
   padding: 8px 10px;
-  margin: 0px 0px 5px 0px;
   width: fit-content;
   word-break: break-all;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
@@ -118,14 +108,8 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 650px;
-  width: 100%;
-  margin: 10px;
+  /* margin: 10px; */
   padding: 0px;
-  background-color: rgb(157, 232, 255);
-  border-radius: 90px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 
 #author {
