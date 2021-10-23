@@ -55,10 +55,15 @@
     "windows": [
       {
         "title": "ToDoRust",
-        "width": 800,
+        "width": 460,
         "height": 600,
+        "minWidth": 365,
+        "minHeight": 565,
+        "maxWidth": 700,
+        "maxHeight": 800,
         "resizable": true,
-        "fullscreen": false
+        "fullscreen": false,
+        "center": true
       }
     ],
     "security": {

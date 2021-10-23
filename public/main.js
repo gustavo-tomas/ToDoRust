@@ -1,24 +1,37 @@
 const form = document.querySelector('form');
-const [action, task] = document.getElementById('main-form').elements;
+const [action, task] = form.elements;
 const taskList = document.querySelector('#task-list');
-// const actionInput = document.querySelector('#action');
+const alertNode = document.querySelector('.alert');
+
+/**
+ * Close generated warnings
+ * @TODO finish warning
+ */
+const closeWarning = () => {
+  var alert = bootstrap.Alert.getInstance(alertNode);
+  alert.close();
+  // $('.alert').alert('close');
+}
+
+const showWarning = () => {
+  warning.hidden = false;
+  $().alert('show');
+}
 
 /**
  * Render all the tasks retrieved from the database as items in a list.
  * Cleans the current screen before updating.
  */
 const renderTasks = () => {
-  taskList.innerHTML = "";
   __TAURI__.invoke("get_task").then(result => {
+    taskList.innerHTML = "";
     result.forEach(element => {
       const task = document.createElement('li');
       task.setAttribute('class', 'task-item');
       task.textContent = element;
       taskList.appendChild(task);
     });
-  }).catch(() => {
-    console.error("Rejected promise to render tasks");
-  });
+  }).catch(err => console.error("Rejected promise to render tasks: ", err));
 }
 
 /**
@@ -38,7 +51,7 @@ const renderTask = (result) => {
     const task = document.createElement('li');
     task.setAttribute('class', 'task-item');
     task.textContent = result.task;
-    taskList.appendChild(task);
+    taskList.prepend(task);
   }
   else {
     window.alert(result.task + " is already in the list!");
@@ -67,32 +80,31 @@ const removeRenderedTask = (result) => {
 // handle_action and sending object with fields values as parameters
 form.addEventListener('submit', evt => {
   evt.preventDefault();
-  console.log("action: ", action.value, "\ntask: ", task.value);
+  // closeWarning();
+  // showWarning();
   const result = {
     action: action.value.toLowerCase(),
     task: task.value.toLowerCase()
   };
   __TAURI__.invoke('update_todo', result).then(() => {
-    if (result.action == 'add') {
-      renderTask(result);
+    switch (result.action) {
+      case 'add':
+        renderTask(result);
+        break;
+      case 'remove':
+        removeRenderedTask(result);
+        break;
+      default:
+        window.alert(result.action + " is not a valid action!");
+        break;
     }
-    else if (result.action == 'remove') {
-      removeRenderedTask(result);
-    }
-    else {
-      window.alert(result.action + " is not a valid action!");
-    }
-  }).catch(() => {
-    console.error("Rejected promise to update list");
-  });
+    form.reset();
+  }).catch(err => console.error("Rejected promise to update list: ", err));
 });
 
 // Render tasks on load
 window.addEventListener('load', evt => {
   evt.preventDefault();
+  // closeWarning();
   renderTasks();
 });
-
-// actionInput.addEventListener('input', evt => {
-//   console.log("Value: ", actionInput.value);
-// });
