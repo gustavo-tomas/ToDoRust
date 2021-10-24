@@ -1,38 +1,18 @@
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: rgb(21, 41, 70);
-  font-family: 'Kalam', cursive;
   color: rgb(214, 214, 214);
 }
 
 .settings-button {
   color: rgb(214, 214, 214)!important;
-  font-size: 24px!important;
-  position: absolute!important;
-  top: 10px;
-  right: 10px;
-  padding: 0px;
 }
 
 #main-form {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  padding-right: 5px;
-  margin-bottom: 15px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 3px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
   background-color: rgb(255, 255, 230);
-  border-radius: 10px;
 }
 
 .form-input {
-  padding: 4px 10px;
-  border-radius: 10px;
-  border: 0px;
   color: black;
-  outline: 0px;
 }
 
 ::placeholder {
@@ -40,17 +20,11 @@ body {
 }
 
 .button {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
   color: black;
-  outline: 0px;
 }
 
 .delete-button {
   color: rgb(255, 45, 45);
-  opacity: 0;
-  transition: opacity .15s ease-in-out;
 }
 
 .delete-all-button {
@@ -58,35 +32,17 @@ body {
 }
 
 hr {
-  width: 75%;
-  max-width: 500px;
   background-color:white;
 }
 
 #task-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: scroll;
-  width: 95vw;
-  max-height: 600px;
-  max-width: 650px;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   background-color: rgb(255, 255, 230);
 }
 
 .task-item {
-  list-style-type: none;
-  border-radius: 8px;
-  padding: 8px 10px;
-  width: fit-content;
-  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   background-color: rgb(29, 59, 105);
 }
 
 .fa-github {
-  font-size:30px;
   color:#fff;
 }

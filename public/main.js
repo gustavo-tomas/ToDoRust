@@ -105,6 +105,7 @@ const renderTasks = (result) => {
     const taskContainer = createContainer(result.task);
     createListener(taskContainer);
     taskList.appendChild(taskContainer);
+    taskList.scrollTo(taskList.scrollWidth, taskList.scrollHeight);
   }
   else {
     __TAURI__.invoke("get_task").then(result => {
