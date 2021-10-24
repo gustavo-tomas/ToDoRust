@@ -3,7 +3,8 @@ const form = document.querySelector('form');
 const task = form.elements;
 const taskList = document.querySelector('#task-list');
 const settings = document.querySelector('#settings');
-
+const dropdown = document.querySelector('.dropdown');
+const darkmode = document.querySelector('#darkmode');
 // const alertNode = document.querySelector('.alert');
 
 /**
@@ -24,12 +25,22 @@ const settings = document.querySelector('#settings');
 /**
  * @TODO see if there is a better way to check for light or dark mode
  * (see if head.contains behave)
- * 
- * @TODO see if darkmode.css can be DRYied
  */
 
-// Changes from light to dark mode on click
+// Spins the whell and shows dropdown menu when clicked and stops when clicked again
 settings.addEventListener('click', evt => {
+  evt.preventDefault();
+  if (dropdown.style.getPropertyValue('visibility') === 'visible') {
+    dropdown.style.setProperty('visibility', 'hidden');
+    settings.style.setProperty('animation', 'none');
+  } else {
+    dropdown.style.setProperty('visibility', 'visible');
+    settings.style.setProperty('animation', 'transform 2s infinite linear');
+  }
+});
+
+// Changes from light to dark mode on click
+darkmode.addEventListener('click', evt => {
   evt.preventDefault();
   const darkmode = document.createElement('link');
   darkmode.setAttribute('rel', 'stylesheet');

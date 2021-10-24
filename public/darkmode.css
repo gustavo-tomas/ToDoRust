@@ -1,48 +1,59 @@
+@import url('./style.css');
+
 body {
-  background-color: rgb(21, 41, 70);
-  color: rgb(214, 214, 214);
+  background-color: var(--background-dark);
+  color: var(--form-light);
 }
 
 .settings-button {
-  color: rgb(214, 214, 214)!important;
+  color: var(--font-light)!important;
+}
+
+.dropdown {
+  background-color: var(--background-light);
 }
 
 #main-form {
-  background-color: rgb(255, 255, 230);
+  background-color: var(--background-light);
 }
 
 .form-input {
-  color: black;
+  color: var(--font-dark);
 }
 
 ::placeholder {
-  color: rgb(82, 82, 82);
+  color: var(--placeholder-dark);
 }
 
 .button {
-  color: black;
+  color: var(--font-dark);
 }
 
 .delete-button {
-  color: rgb(255, 45, 45);
+  color: var(--delete-button);
 }
 
 .delete-all-button {
-  color: rgb(255, 45, 45);
+  color: var(--delete-button);
 }
 
 hr {
-  background-color:white;
+  background-color:var(--font-light);
 }
 
 #task-list {
-  background-color: rgb(255, 255, 230);
+  background-color: var(--background-light);
 }
 
 .task-item {
-  background-color: rgb(29, 59, 105);
+  background-color: var(--task-dark);
+  color: var(--font-light);
+}
+
+#author {
+  color: var(--font-light);
 }
 
 .fa-github {
-  color:#fff;
+  color: var(--font-light);
 }

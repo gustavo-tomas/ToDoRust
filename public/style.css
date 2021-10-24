@@ -2,6 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam&family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
+:root {
+  --background-light: rgb(255, 255, 230);
+  --background-dark: rgb(21, 41, 70);
+  --form-dark: rgb(29, 59, 105);
+  --form-light: rgb(214, 214, 214);
+  --delete-button: rgb(255, 45, 45);
+  --task-light: rgb(158, 211, 255);
+  --task-dark: rgb(29, 59, 105);
+  --font-dark: rgb(0, 0, 0);
+  --font-light: rgb(255, 255, 255);
+  --placeholder-light: rgba(255, 255, 255, 0.527);
+  --placeholder-dark: rgb(82, 82, 82);
+}
+
 html {
   scroll-behavior: smooth!important;
 }
@@ -15,21 +29,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(255, 255, 230);
+  background-color: var(--background-light);
   font-family: 'Kalam', cursive;
 }
 
 .settings-button {
-  color: black!important;
+  color: var(--font-dark)!important;
   font-size: 24px!important;
   position: absolute!important;
   top: 10px;
   right: 10px;
   padding: 0px;
-}
-
-.settings-button:hover {
-  animation: transform 2s infinite linear;
+  z-index: 99;
 }
 
 @keyframes transform {
@@ -38,9 +49,36 @@ body {
   }
 }
 
+.dropdown {
+  position: absolute!important;
+  display: inline-block;
+  max-width: 100px;
+  height: 94px;
+  top: 10px;
+  right: 10px;
+  border-radius: 10px;
+  background-color: var(--form-dark);
+  padding: 10px;
+  visibility: hidden;
+}
+
+.dropdown:hover {
+  transition: opacity .15s ease-in-out;
+  visibility: visible;
+}
+
+.dropdown-link {
+  width: 100%;
+  padding: 0px;
+}
+
+.dropdown-link:hover {
+  color: var(--task-light);
+}
+
 #title {
   font-family: 'Permanent Marker', cursive;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid var(--delete-button);
   font-size: 48px;
   margin: 20px 0px 10px 0px;
 }
@@ -66,8 +104,7 @@ main {
   padding-right: 5px;
   margin-bottom: 15px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 3px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
-  background-color: rgb(189, 224, 255);
-  background-color: rgb(29, 59, 105);
+  background-color: var(--form-dark);
   border-radius: 10px;
 }
 
@@ -76,20 +113,20 @@ main {
   border-radius: 10px;
   border: 0px;
   background-color: transparent;
-  color: white;
+  color: var(--font-light);
   outline: 0px;
 }
 
 ::placeholder {
-  color: rgba(255, 255, 255, 0.527);
+  color: var(--placeholder-light);
 }
 
 .button {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  color: white;
-  outline: 0px;
+  color: var(--font-light);
+  outline: 0px!important;
 }
 
 .material-icons {
@@ -101,13 +138,13 @@ main {
 }
 
 .delete-button {
-  color: rgb(255, 45, 45);
+  color: var(--delete-button);
   opacity: 0;
   transition: opacity .15s ease-in-out;
 }
 
 .delete-all-button {
-  color: rgb(255, 45, 45);
+  color: var(--delete-button);
 }
 
 .task-item-container:hover > .material-icons > .delete-button {
@@ -117,7 +154,7 @@ main {
 hr {
   width: 75%;
   max-width: 500px;
-  background-color:black;
+  background-color:var(--font-dark);
 }
 
 #task-list {
@@ -129,10 +166,9 @@ hr {
   max-height: 600px;
   max-width: 650px;
   padding: 15px;
-  background-color: rgb(29, 59, 105);
+  background-color: var(--form-dark);
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
 }
 
 .task-item-container {
@@ -148,7 +184,7 @@ hr {
 
 .task-item {
   list-style-type: none;
-  background-color: rgb(158, 211, 255);
+  background-color: var(--task-light);
   border-radius: 8px;
   padding: 8px 10px;
   width: fit-content;
@@ -159,7 +195,6 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin: 10px; */
   padding: 0px;
 }
 
@@ -169,7 +204,7 @@ footer {
 
 .fa-github {
   font-size:30px;
-  color:#000;
+  color:var(--font-dark);
 }
 
 ::-webkit-scrollbar {
