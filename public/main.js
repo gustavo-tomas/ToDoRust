@@ -27,14 +27,19 @@ const darkmode = document.querySelector('#darkmode');
  * (see if head.contains behave)
  */
 
-// Spins the whell and shows dropdown menu when clicked and stops when clicked again
+// Spins the wheel and shows dropdown menu when clicked and stops when clicked again
 settings.addEventListener('click', evt => {
   evt.preventDefault();
   if (dropdown.style.getPropertyValue('visibility') === 'visible') {
-    dropdown.style.setProperty('visibility', 'hidden');
+    dropdown.ontransitionend = () => {
+      dropdown.style.setProperty('visibility', 'hidden');
+    }
     settings.style.setProperty('animation', 'none');
+    dropdown.style.setProperty('opacity', '0');
   } else {
     dropdown.style.setProperty('visibility', 'visible');
+    dropdown.ontransitionend = () => { }
+    dropdown.style.setProperty('opacity', '1');
     settings.style.setProperty('animation', 'transform 2s infinite linear');
   }
 });

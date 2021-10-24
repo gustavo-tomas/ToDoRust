@@ -37,6 +37,10 @@ body {
   color: var(--font-dark)!important;
   font-size: 24px!important;
   position: absolute!important;
+  background-color: var(--background-light)!important;
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
   top: 10px;
   right: 10px;
   padding: 0px;
@@ -54,17 +58,14 @@ body {
   display: inline-block;
   max-width: 100px;
   height: 94px;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   border-radius: 10px;
   background-color: var(--form-dark);
   padding: 10px;
   visibility: hidden;
-}
-
-.dropdown:hover {
-  transition: opacity .15s ease-in-out;
-  visibility: visible;
+  opacity: 0;
+  transition: opacity .5s ease-out;
 }
 
 .dropdown-link {
