@@ -18,8 +18,10 @@ body {
 .settings-button {
   color: black!important;
   font-size: 24px!important;
-  position: absolute;
-  right: 0;
+  position: absolute!important;
+  top: 10px;
+  right: 10px;
+  padding: 0px;
 }
 
 .settings-button:hover {
@@ -27,9 +29,6 @@ body {
 }
 
 @keyframes transform {
-  from {
-    transform: rotate(0deg);
-  }
   to {
     transform: rotate(359deg);
   }
@@ -72,9 +71,13 @@ main {
   padding: 4px 10px;
   border-radius: 10px;
   border: 0px;
-  background-color: rgb(29, 59, 105);
+  background-color: transparent;
   color: white;
   outline: 0px;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.527);
 }
 
 .button {
@@ -145,7 +148,6 @@ hr {
   border-radius: 8px;
   padding: 8px 10px;
   width: fit-content;
-  word-break: break-all;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 
@@ -159,6 +161,11 @@ footer {
 
 #author {
   margin: 3px;
+}
+
+.fa-github {
+  font-size:30px;
+  color:#000;
 }
 
 ::-webkit-scrollbar {
