@@ -1,0 +1,48 @@
+body {
+  background-color: rgb(21, 41, 70);
+  color: rgb(214, 214, 214);
+}
+
+.settings-button {
+  color: rgb(214, 214, 214)!important;
+}
+
+#main-form {
+  background-color: rgb(255, 255, 230);
+}
+
+.form-input {
+  color: black;
+}
+
+::placeholder {
+  color: rgb(82, 82, 82);
+}
+
+.button {
+  color: black;
+}
+
+.delete-button {
+  color: rgb(255, 45, 45);
+}
+
+.delete-all-button {
+  color: rgb(255, 45, 45);
+}
+
+hr {
+  background-color:white;
+}
+
+#task-list {
+  background-color: rgb(255, 255, 230);
+}
+
+.task-item {
+  background-color: rgb(29, 59, 105);
+}
+
+.fa-github {
+  color:#fff;
+}
