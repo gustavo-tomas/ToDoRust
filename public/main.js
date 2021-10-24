@@ -59,7 +59,6 @@ const createListener = (container) => {
     __TAURI__.invoke('update_todo', result).then(() => {
       container.setAttribute('class', 'task-item-container fade-transition');
       container.addEventListener('transitionend', () => {
-        evt.preventDefault();
         taskList.removeChild(container);
       }, false);
     }).catch(err => console.error("Rejected promise to delete task: ", err));

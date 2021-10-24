@@ -5,13 +5,11 @@
 
 use tauri::{command};
 
-use std::collections::HashMap;
 use std::fs;
 use std::fs::write;
 use std::fs::OpenOptions;
 use std::io::Error;
 use std::io::Read;
-use std::str::FromStr;
 
 // Get path to home and returns the path to home/documents 
 fn get_path() -> String {
@@ -33,7 +31,7 @@ fn get_path() -> String {
 fn get_task() -> Vec<String> {
   let todo = Todo::new().expect("Failed to initialise db");
   let mut list: Vec<String> = Vec::new();
-  todo.map.into_iter().for_each(|i| list.push(i.0.to_string()));
+  todo.list.into_iter().for_each(|i| list.push(i));
   return list;
 }
 
@@ -46,7 +44,7 @@ fn update_todo(action: String, task: String) {
   if action == "add" {
     todo.insert(task);
     match todo.save() {
-      Ok(_) => println!("Task inserted!"),
+      Ok(_) => println!("Todo saved"),
       Err(why) => println!("An error has occurred: {}", why),
     }
   } 
@@ -54,7 +52,7 @@ fn update_todo(action: String, task: String) {
     match todo.remove(&task) {
       None => println!("'{}' is not in the list!", task),
       Some(_) => match todo.save() {
-        Ok(_) => println!("Task removed!"),
+        Ok(_) => println!("Todo saved"),
         Err(why) => println!("An error has occurred: {}", why),
       },
     }
@@ -62,7 +60,7 @@ fn update_todo(action: String, task: String) {
   else if action == "purge" {
     todo.purge();
     match todo.save() {
-      Ok(_) => println!("Db purged!"),
+      Ok(_) => println!("Db purged"),
       Err(why) => println!("An error has occurred: {}", why),
     }
   }
@@ -72,12 +70,11 @@ fn update_todo(action: String, task: String) {
 }
 
 struct Todo {
-  map: HashMap<String, bool>,
+  list: Vec<String>,
 }
 
-// Implementation block of Todo
 impl Todo {
-
+  
   // Retrieves data in file
   fn new() -> Result<Todo, Error> {
     
@@ -92,43 +89,41 @@ impl Todo {
     let mut content = String::new();
     f.read_to_string(&mut content)?;
     
-    // Iterates over each line and insert values in the HashMap "map"
-    let map: HashMap<String, bool> = content
+    // Iterates over each line and insert values in the Vec "list"
+    let list: Vec<String> = content
       .lines()
-      .map(|line| line.splitn(2, '\t').collect::<Vec<&str>>())
-      .map(|v| (v[0], v[1]))
-      .map(|(k, v)| (String::from(k), bool::from_str(v).unwrap()))
+      .map(|line| line.to_string())
       .collect();
-    Ok(Todo { map })
+    Ok(Todo { list })
   }
 
-  // Insert new item into the map
-  fn insert(&mut self, key: String) {
-    self.map.insert(key, true);
+  // Insert new item in the list
+  fn insert(&mut self, value: String) {
+    if !self.list.contains(&value) {
+      self.list.push(value);
+    }
   }
 
-  // Save the map into file db.txt
+  // Save list into file
   fn save(self) -> Result<(), Error> {
     let mut content = String::new();
-    for (k, v) in self.map {
-      let record = format!("{}\t{}\n", k, v);
+    for value in self.list {
+      let record = format!("{}\n", value);
       content.push_str(&record);
     }
-    write(get_path(), content)
+    return write(get_path(), content);
   }
 
-  // Remove an entry or return None if key is invalid
-  fn remove(&mut self, key: &String) -> Option<()> {
-    if self.map.contains_key(key) {
-      self.map.remove(key);
-      return Some(());
-    }
-    return None;
+  // Remove an entry or return None if value is not in the list
+  fn remove(&mut self, value: &String) -> Option<()> {
+    return 
+      if self.list.contains(value) { self.list.retain(|v| v != value); Some(()) }
+      else { None }
   }
 
-  // Clear entire hashmap
+  // Clear entire list
   fn purge(&mut self) {
-    self.map.clear();
+    self.list.clear();
   }
 }
 
