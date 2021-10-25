@@ -124,12 +124,21 @@ const renderTasks = (result) => {
   }
   else {
     __TAURI__.invoke("get_task").then(result => {
-      taskList.innerHTML = "";
-      result.forEach(element => {
-        const taskContainer = createContainer(element);
+      if (result.length != 0) {
+        result.forEach(element => {
+          const taskContainer = createContainer(element);
+          createListener(taskContainer);
+          taskList.appendChild(taskContainer);
+        });
+      }
+      // Renders tutorial task message
+      else {
+        const message = taskList.firstElementChild.innerText;
+        const taskContainer = createContainer(message);
+        taskList.innerHTML = "";
         createListener(taskContainer);
         taskList.appendChild(taskContainer);
-      });
+      }
     }).catch(err => console.error("Rejected promise to render tasks: ", err));
   }
 }
@@ -149,6 +158,7 @@ form.addEventListener('submit', evt => {
 
 // Delete all tasks when button is pressed
 task.item(2).addEventListener('click', evt => {
+  if (taskList.hasChildNodes() <= 0) return;
   confirm('Do you really want to delete all tasks?').then((answer) => {
     if (!answer) {
       return;
