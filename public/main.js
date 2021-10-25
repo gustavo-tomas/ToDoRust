@@ -125,6 +125,7 @@ const renderTasks = (result) => {
   else {
     __TAURI__.invoke("get_task").then(result => {
       if (result.length != 0) {
+        taskList.innerHTML = "";
         result.forEach(element => {
           const taskContainer = createContainer(element);
           createListener(taskContainer);
