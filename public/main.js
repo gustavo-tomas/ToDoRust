@@ -5,6 +5,7 @@ const taskList = document.querySelector('#task-list');
 const settings = document.querySelector('#settings');
 const dropdown = document.querySelector('.dropdown');
 const darkmode = document.querySelector('#darkmode');
+const font = document.querySelector('#font');
 // const alertNode = document.querySelector('.alert');
 
 /**
@@ -56,6 +57,18 @@ darkmode.addEventListener('click', evt => {
   } else {
     head.append(darkmode);
   }
+});
+
+// Changes font style based on current font
+font.addEventListener('click', evt => {
+  evt.preventDefault();
+  const fonts = [`Gluten`, `Indie Flower`, `Architects Daughter`,
+    `Permanent Marker`, `Shadows Into Light`, `Caveat`, `Kalam`];
+  
+  let currFont = document.body.style.fontFamily;
+  currFont = currFont[0] == `"` ? currFont.slice(1, currFont.length - 1) : currFont;
+  const nextFont = fonts[(fonts.indexOf(currFont) + 1) % fonts.length];
+  document.body.style.fontFamily = nextFont;
 });
 
 /**

@@ -1,5 +1,5 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat&family=Gluten&family=Indie+Flower&family=Kalam&family=Permanent+Marker&family=Shadows+Into+Light&display=swap');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 :root {
@@ -30,7 +30,7 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: var(--background-light);
-  font-family: 'Kalam', cursive;
+  font-family: 'Kalam';
 }
 
 .settings-button {
