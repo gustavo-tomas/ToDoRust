@@ -164,6 +164,12 @@ form.addEventListener('submit', evt => {
   // closeWarning();
   // showWarning();
   const result = { action: 'add', task: task.item(0).value.replace(/\s+/g, ' ').trim() };
+  if (result.task.length <= 0) {
+    window.alert("You need to specify a task!");
+    form.reset();
+    task.item(0).focus();
+    return;
+  }
   __TAURI__.invoke('update_todo', result).then(() => {
     renderTasks(result);
     form.reset();
