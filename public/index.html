@@ -8,18 +8,13 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <!-- <div id="warning" class="alert alert-warning alert-dismissible fade show" role="alert">
-    Invalid operation.
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div> -->
   <span class="material-icons" title="Settings"><input id="settings" type="button" value="settings" class="button settings-button"></span>
   <div class="dropdown">
-    <!-- <button id="darkmode" class="dropdown-link button"><span class="material-icons" title="Darkmode">dark_mode</span></button> -->
-    <span class="material-icons" title="Darkmode"><input id="darkmode" class="dropdown-link button" type="button" value="dark_mode"></span>
-    <button id="font" class="dropdown-link button" title="Font style">Font</button>
-    <button class="dropdown-link button">Link 3</button>
+    <button id="darkmode" class="dropdown-link button" title="Switch between Light & Darkmode">
+      <span class="material-icons">dark_mode</span>
+    </button>
+    <button id="font" class="dropdown-link button" title="Change font style">Font</button>
+    <a class="dropdown-link button" title="Open help in browser" href="https://github.com/gustavo-tomas/ToDoRust#readme" target="_blank">Help</a>
   </div>
   <h1 id="title">ToDoRust</h1>
   <h4 id="subtitle">
@@ -27,10 +22,10 @@
     Add a task to the list using the field below
   </h4>
   <main>
-    <form id="main-form" method="get">
+    <form id="main-form" method="get" title="Enter your task here">
       <input type="text" class="form-input" placeholder="Write a task" required>
       <span class="material-icons" title="Add this task"><input type="submit" value="add_task" class="button"></span>
-      <span class="material-icons" title="Delete all tasks"><input type="button" value="delete_forever" class="button delete-all-button"></span>
+      <span class="material-icons" title="Delete ALL tasks"><input type="button" value="delete_forever" class="button delete-all-button"></span>
     </form>
     <hr>
     <ul id="task-list">
@@ -44,8 +39,8 @@
   </main>
   <hr>
   <footer>
-    <p id="author">Gustavo Tomás, 2021</p>
-    <a href="https://github.com/gustavo-tomas/ToDoRust/" target="_blank" title="Sauce code"><i class="fa fa-github"></i></a>
+    <p id="author" title="Hello :)">Gustavo Tomás, 2021</p>
+    <a href="https://github.com/gustavo-tomas/ToDoRust/" target="_blank" title="Source code"><i class="fa fa-github"></i></a>
   </footer>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

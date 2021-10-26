@@ -6,27 +6,6 @@ const settings = document.querySelector('#settings');
 const dropdown = document.querySelector('.dropdown');
 const darkmode = document.querySelector('#darkmode');
 const font = document.querySelector('#font');
-// const alertNode = document.querySelector('.alert');
-
-/**
- * Close generated warnings
- * @TODO finish warning
- */
-// const closeWarning = () => {
-//   var alert = bootstrap.Alert.getInstance(alertNode);
-//   alert.close();
-//   // $('.alert').alert('close');
-// }
-
-// const showWarning = () => {
-//   warning.hidden = false;
-//   $().alert('show');
-// }
-
-/**
- * @TODO see if there is a better way to check for light or dark mode
- * (see if head.contains behave)
- */
 
 // Spins the wheel and shows dropdown menu when clicked and stops when clicked again
 settings.addEventListener('click', evt => {
@@ -48,14 +27,16 @@ settings.addEventListener('click', evt => {
 // Changes from light to dark mode on click
 darkmode.addEventListener('click', evt => {
   evt.preventDefault();
-  const darkmode = document.createElement('link');
-  darkmode.setAttribute('rel', 'stylesheet');
-  darkmode.setAttribute('href', './darkmode.css');
+  const darkmodeCSS = document.createElement('link');
+  darkmodeCSS.setAttribute('rel', 'stylesheet');
+  darkmodeCSS.setAttribute('href', './darkmode.css');
 
-  if (head.lastElementChild.isEqualNode(darkmode)) {
+  if (head.lastElementChild.isEqualNode(darkmodeCSS)) {
     head.removeChild(head.lastElementChild);
+    darkmode.firstElementChild.innerText = 'dark_mode';
   } else {
-    head.append(darkmode);
+    head.append(darkmodeCSS);
+    darkmode.firstElementChild.innerText = 'light_mode';
   }
 });
 
@@ -94,6 +75,11 @@ const createListener = (container) => {
   });
 }
 
+/**
+ * Creates and inserts text into a container of class task-item-container
+ * @param {The string to be inserted in the container} text 
+ * @returns {The container with the task inside}
+ */
 const createContainer = (text) => {
   const taskContainer = document.createElement('div');
   taskContainer.setAttribute('class', 'task-item-container');
@@ -161,8 +147,6 @@ const renderTasks = (result) => {
 // handle_action and sending object with fields values as parameters
 form.addEventListener('submit', evt => {
   evt.preventDefault();
-  // closeWarning();
-  // showWarning();
   const result = { action: 'add', task: task.item(0).value.replace(/\s+/g, ' ').trim() };
   if (result.task.length <= 0) {
     window.alert("You need to specify a task!");
@@ -193,7 +177,6 @@ task.item(2).addEventListener('click', evt => {
 // Render tasks on load
 window.addEventListener('load', evt => {
   evt.preventDefault();
-  // closeWarning();
   renderTasks();
   task.item(0).focus();
 });
