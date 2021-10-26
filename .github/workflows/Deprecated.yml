@@ -1,5 +1,5 @@
-name: "Release"
-on: [workflow_dispatch, push, pull_request]
+name: "Deprecated"
+on: [workflow_dispatch]
 
 jobs:
   create-release:
