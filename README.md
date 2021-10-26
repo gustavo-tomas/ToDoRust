@@ -18,7 +18,7 @@ To install ToDoRust, simply go to the [Releases](https://github.com/gustavo-toma
 ### Uninstalling
 In Windows or Mac uninstalling is pretty straight forward. However, in **Ubuntu** there are cases when the Ubuntu Store doesn't show or can't uninstall your app. If thats the case, use the command `$ sudo apt purge to-do-rust` to uninstall it by force.
 
-### Generated Folders & Files
+#### Generated Folders & Files
 To store the tasks, ToDoRust creates/opens a folder `$HOME/user/Documents/ToDoRustDb`. This folder contains a text file `db.txt` with all your tasks. In case you need to open or manage your annotations, you can access them in that folder. Keep in mind that uninstalling the app **does not** erases that folder. You need to delete it **manually**.
 
 ### Build your own
