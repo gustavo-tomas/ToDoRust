@@ -6,7 +6,7 @@
 To install ToDoRust, simply go to the [Releases](https://github.com/gustavo-tomas/ToDoRust/releases) section and click on latest. Then, download the assets acording to your Operating System:
 
 #### Ubuntu
-- .AppImage -> see issue [#14](https://github.com/gustavo-tomas/ToDoRust/issues/14)
+- .AppImage
 - .deb
 
 #### Windows
