@@ -2,6 +2,8 @@
 
 **ToDoRust** is a simple ToDo Task Manager made with [Rust](https://www.rust-lang.org) and [Tauri](https://tauri.studio/en/).
 
+[![Publish](https://github.com/gustavo-tomas/ToDoRust/actions/workflows/Publish.yml/badge.svg?branch=master)](https://github.com/gustavo-tomas/ToDoRust/actions/workflows/Publish.yml)
+
 ### Installing
 To install ToDoRust, simply go to the [Releases](https://github.com/gustavo-tomas/ToDoRust/releases) section and click on latest. Then, download the assets acording to your Operating System:
 
