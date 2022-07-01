@@ -5,3 +5,6 @@ version = 3
 [[package]]
 name = "to-do-rust"
 version = "0.2.0"
+
+[dependencies]
+windows = "0.32.0"
