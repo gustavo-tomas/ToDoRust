@@ -30,8 +30,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tagName: to-do-rust-v0.2.0 # the action automatically replaces \_\_VERSION\_\_ with the app version
-        releaseName: "ToDoRust 0.2.0"
+        tagName: to-do-rust-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
+        releaseName: "ToDoRust v__VERSION__"
         releaseBody: "See the assets to download this version and install."
         releaseDraft: true
         prerelease: false
