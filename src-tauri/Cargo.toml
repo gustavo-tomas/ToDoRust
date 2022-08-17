@@ -20,6 +20,9 @@ serde = { version = "1.0.143", features = ["derive"] }
 tauri = { version = "1.0.4", features = ["api-all"] }
 home = "0.5.3"
 
+[dependencies.windows]
+version = "0.39.0"
+
 [features]
 default = [ "custom-protocol" ]
 custom-protocol = [ "tauri/custom-protocol" ]
